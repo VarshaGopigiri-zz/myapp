@@ -1,0 +1,25 @@
+
+
+<p>TFS WORKITEMS LIST</p>
+<br>
+ <div>
+     <table>
+        <thead>
+        <th>Ticket ID</th><th>WorkItemTitle</th><th>AssignedTo</th><th>WorkItemType</th>
+        
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of tk.value; let i=index">
+           
+               <td><a href="{{tk.value[i].url}}">{{tk.value[i].id}}</a></td>
+               <td>{{tk.value[i].fields["System.Title"]}}</td>
+               <td>{{tk.value[i].fields["System.AssignedTo"]}}</td>
+               <td>{{tk.value[i].fields["System.WorkItemType"]}}</td>
+            </tr>
+        </tbody>
+     </table>
+
+
+
+ </div>
+

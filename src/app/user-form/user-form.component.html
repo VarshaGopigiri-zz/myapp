@@ -1,0 +1,61 @@
+<!-- <p>
+  user-form works!
+</p> -->
+<!-- <p>
+  home-component works!
+</p> -->
+
+<div >
+    <h1>
+   User Form
+    </h1>
+    
+  <form [formGroup]="rForm" (ngSubmit)="onsubmit(rForm.value)">
+  <div class="form-container">
+    <div class="row colums">
+        <label>Service Name
+            <input type="text" formControlName="servicename"><!-- id="servicename"-->
+        </label>
+        <div class="alert" 
+          *ngIf="!rForm.controls['servicename'].valid && rForm.controls['servicename'].touched">
+          This is required
+        </div>
+  
+        <label>Service Owner
+          <input type="text" formControlName="serviceowner" id="serviceowner">
+        </label>
+        <div class="alert" 
+           *ngIf="!rForm.controls['serviceowner'].valid && rForm.controls['serviceowner'].touched">
+           This is required
+        
+        </div>
+  <table>
+  <thead>
+    <tr> 
+       <th>Tasks Names </th><th>Sub Tasks</th><th> Target Date </th><th>Task Owner </th> <th>  Include Task  </th>
+  </tr>
+  </thead>
+  <tbody formArrayName="tasksarray" *ngFor="let task of rForm.controls['tasksarray'].controls; let i=index;">
+      <tr [formGroupName]="i">
+  <td><label for="taskName">{{i + 1}} {{rForm.controls['tasksarray'].controls[i].controls.taskName.value}}
+    <input type="hidden" formControlName="taskName" id="taskName">
+  </label></td>
+  <td >
+    <tbody *ngFor="let subtask of rForm.controls['tasksarray'].controls[i].controls.subTasks.controls; let sub=index">
+    <label for="subTasks"> {{sub+1}} {{rForm.controls['tasksarray'].controls[i].controls.subTasks.controls[sub].value}}
+    <!--input type="hidden" formControlName="subTasks" id="subTasks"-->
+  </label></td> 
+  <td> <input type="date" formControlName="targetDate" style="width:300px;height:50px" id="targetDate"> </td>
+   
+  <td><input type="text" formControlName="taskOwner" style="width:300px;height:50px" id="taskOwner"></td>
+   <td><input type="checkbox" formControlName="includeTask" value="" data-ng-true-value="-1" id="includeTask"></td>
+  </tr>
+  </tbody>
+  </table>
+  
+    <input type="submit" class="button expanded" value="Submit Form">
+  
+  </div>
+  </div>
+  </form>
+  </div>

@@ -1,0 +1,22 @@
+{
+	"tfsData": {
+		"tfsItems": [
+			{
+				"maintask": "Azure Subscription management",
+				"subtasks": [
+					"Subscriptions list under the Staging",
+					"Subscription list under the Production"
+				]
+			},
+			{
+				"maintask": "Azure Subscription Access",
+				"subtasks": [
+					"Add Engineering team as contributor",
+					"Add SE team as contributor",
+					"Add apexls  reader",
+					"Remove Admins except service owner from old portal"
+				]
+			}
+		]
+	}
+}
